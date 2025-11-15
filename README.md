@@ -1,10 +1,4 @@
-# Redis-Flask
-Exemple  d’utilisation de Redis avec Flask pour gérer des utilisateurs et des sessions.
-
-
-
-````markdown
-# 📌 Flask + Redis — Gestion d’utilisateurs et de sessions
+# 📌 Flask + Redis — TP de gestion d’utilisateurs et de sessions
 
 Ce dépôt contient un projet simple illustrant l’utilisation de **Redis** comme base de données clé-valeur pour stocker :
 
@@ -46,122 +40,50 @@ Ce projet a été réalisé dans le cadre d’un **TP pédagogique sur Redis**.
 
 ### 1️⃣ Cloner le projet  
 ```bash
-git clone https://github.com/votre-utilisateur/votre-projet.git
-cd votre-projet
-````
-
-### 2️⃣ Installer les dépendances
-
-```bash
+git clone https://github.com/lakshwini/Redis-Flask.git
+cd Redis-Flask
+2️⃣ Installer les dépendances
 pip install flask redis
-```
-
-### 3️⃣ Démarrer Redis
-
+3️⃣ Démarrer Redis
 Sur Linux / WSL :
-
-```bash
 sudo systemctl start redis-server
-```
-
 Sur macOS (Homebrew) :
-
-```bash
 brew services start redis
-```
-
----
-
-## 🔧 Configuration
-
+🔧 Configuration
 Connexion à Redis :
-
-```python
 r = redis.Redis(
     host='localhost',
     port=6379,
     db=0,
     password='your_password_here'   # Remplacer par votre mot de passe Redis
 )
-```
-
----
-
-## ▶️ Lancer le serveur Flask
-
-```bash
-python ServiceFlask.py
-```
-
+⚠️ Ne mettez jamais votre mot de passe réel dans un dépôt public.
+▶️ Lancer le serveur Flask
+python app.py
 L’API sera disponible sur :
-👉 **[http://127.0.0.1:5000](http://127.0.0.1:5000)**
-
----
-
-## 📡 Endpoints API
-
-### ➤ **Créer un utilisateur**
-
-```bash
+👉 http://127.0.0.1:5000
+📡 Endpoints API
+➤ Créer un utilisateur
 curl -X POST http://127.0.0.1:5000/create_user \
     -H "Content-Type: application/json" \
     -d '{"nom": "Doe", "prenom": "John"}'
-```
-
----
-
-### ➤ **Récupérer un utilisateur**
-
-```bash
+➤ Récupérer un utilisateur
 curl http://127.0.0.1:5000/get_user/1
-```
-
----
-
-### ➤ **Supprimer un utilisateur**
-
-```bash
+➤ Supprimer un utilisateur
 curl -X DELETE http://127.0.0.1:5000/delete_user/1
-```
-
----
-
-### ➤ **Lister les utilisateurs**
-
-```bash
+➤ Lister les utilisateurs
 curl http://127.0.0.1:5000/list_users
-```
-
----
-
-## 🧩 Sessions
-
-### ➤ **Créer une session**
-
-```bash
+🧩 Sessions
+➤ Créer une session
 curl -X POST http://127.0.0.1:5000/create_session \
     -H "Content-Type: application/json" \
-    -d '{"session_id": "1929", "data": {"user_id": 1, "username": "Siva"}}'
-```
-
-### ➤ **Récupérer une session**
-
-```bash
-curl http://127.0.0.1:5000/get_session/1929
-```
-
----
-
-## 📚 Objectif pédagogique
-
+    -d '{"session_id": "abc123", "data": {"user_id": 1, "username": "john"}}'
+➤ Récupérer une session
+curl http://127.0.0.1:5000/get_session/abc123
+📚 Objectif pédagogique
 Ce projet vise à comprendre :
-
-* le fonctionnement d’une base clé-valeur en mémoire
-* la persistance optionnelle des données Redis
-* la création d’une API REST avec Flask
-* la gestion de sessions via Redis (`SETEX`)
-* l’utilisation des commandes Redis : `SET`, `GET`, `SETEX`, `INCR`, `DEL`, etc.
-
-
-```
-
+le fonctionnement d’une base clé-valeur en mémoire
+la persistance optionnelle des données Redis
+la création d’une API REST avec Flask
+la gestion de sessions via Redis (SETEX)
+les commandes Redis essentielles : SET, GET, SETEX, INCR, DEL, etc.
