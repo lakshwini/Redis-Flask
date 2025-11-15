@@ -1,4 +1,4 @@
-# 📌 Flask + Redis — TP de gestion d’utilisateurs et de sessions
+# 📌 Flask + Redis — Gestion d’utilisateurs et de sessions
 
 Ce dépôt contient un projet simple illustrant l’utilisation de **Redis** comme base de données clé-valeur pour stocker :
 
@@ -57,11 +57,12 @@ r = redis.Redis(
     db=0,
     password='your_password_here'   # Remplacer par votre mot de passe Redis
 )
-⚠️ Ne mettez jamais votre mot de passe réel dans un dépôt public.
+
 ▶️ Lancer le serveur Flask
 python app.py
 L’API sera disponible sur :
 👉 http://127.0.0.1:5000
+
 📡 Endpoints API
 ➤ Créer un utilisateur
 curl -X POST http://127.0.0.1:5000/create_user \
@@ -77,9 +78,9 @@ curl http://127.0.0.1:5000/list_users
 ➤ Créer une session
 curl -X POST http://127.0.0.1:5000/create_session \
     -H "Content-Type: application/json" \
-    -d '{"session_id": "abc123", "data": {"user_id": 1, "username": "john"}}'
+    -d '{"session_id": "1929", "data": {"user_id": 1, "username": "Siva"}}'
 ➤ Récupérer une session
-curl http://127.0.0.1:5000/get_session/abc123
+curl http://127.0.0.1:5000/get_session/1929
 📚 Objectif pédagogique
 Ce projet vise à comprendre :
 le fonctionnement d’une base clé-valeur en mémoire
